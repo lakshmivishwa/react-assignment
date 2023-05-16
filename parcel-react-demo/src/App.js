@@ -1,12 +1,31 @@
 import React from "react";
+
 import Login from "./Components/Login";
-import Todos from "./Components/Todos/Todos";
-// import Profile from "./Components/Profile";
+import TodosWithuseState from "./Components/TodosWithUseState/Todos";
+import TodosWithuseReducer from "./Components/TodosWithUseReducer/Todos";
+import BasicExample from "./Components/Navbar/Navbar";
+import Profile from "./Components/Profile";
+import TodoContext from "./Components/TodosWithUseContext/TodoContext/TodoContext";
+
+
 export default function App() {
 
+
+
+
     return (
-        // <Profile />
-        <Todos />
+
+        <>
+
+            {/* <BasicExample />
+            <TodosWithuseReducer />
+            <TodosWithuseState /> */}
+            <TodoContext />
+
+        </>
+
+
+
     )
 }
 
