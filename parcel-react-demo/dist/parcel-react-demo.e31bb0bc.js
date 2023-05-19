@@ -37175,7 +37175,258 @@ var UseCallbackComp = function UseCallbackComp() {
 };
 var _default = UseCallbackComp;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Button/Button":"src/Components/Button/Button.js","./count":"src/Components/count.js"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Button/Button":"src/Components/Button/Button.js","./count":"src/Components/count.js"}],"src/Components/Image/ImageCompnent/ImageComponent.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Image = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var Image = _react.default.memo(function (_ref) {
+  var src = _ref.src,
+    alt = _ref.alt;
+  console.log('Rendering Image:', src);
+  return /*#__PURE__*/_react.default.createElement("img", {
+    src: src,
+    alt: alt
+  });
+});
+exports.Image = Image;
+},{"react":"node_modules/react/index.js"}],"src/Components/Image/ImageGallery/ImageGallery.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _ImageComponent = require("../ImageCompnent/ImageComponent");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var ImageGallery = function ImageGallery(_ref) {
+  var images = _ref.images;
+  console.log('Rendering ImageGallery'); // For demonstration purposes
+
+  return /*#__PURE__*/_react.default.createElement("div", null, images.map(function (image, index) {
+    return /*#__PURE__*/_react.default.createElement(_ImageComponent.Image, {
+      key: index,
+      src: image.src,
+      alt: image.alt
+    });
+  }));
+};
+var _default = ImageGallery;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../ImageCompnent/ImageComponent":"src/Components/Image/ImageCompnent/ImageComponent.js"}],"src/Components/RegistrationForm/style.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var styles = {
+  form: {
+    width: '400px',
+    margin: '0 auto',
+    padding: '20px',
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+    backgroundColor: '#f7f7f7'
+  },
+  label: {
+    display: 'block',
+    marginBottom: '10px',
+    fontWeight: 'bold'
+  },
+  input: {
+    width: '100%',
+    padding: '8px',
+    marginBottom: '15px',
+    border: '1px solid #ccc',
+    borderRadius: '4px'
+  },
+  textarea: {
+    width: '100%',
+    padding: '8px',
+    marginBottom: '15px',
+    border: '1px solid #ccc',
+    borderRadius: '4px'
+  },
+  button: {
+    padding: '10px 20px',
+    backgroundColor: '#4caf50',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer'
+  },
+  errorMessage: {
+    color: 'red',
+    marginTop: '10px'
+  }
+};
+var _default = styles;
+exports.default = _default;
+},{}],"src/Components/RegistrationForm/RegistrationForm.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireWildcard(require("react"));
+var _style = _interopRequireDefault(require("./style"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+var RegistrationForm = /*#__PURE__*/function (_Component) {
+  _inherits(RegistrationForm, _Component);
+  var _super = _createSuper(RegistrationForm);
+  function RegistrationForm(props) {
+    var _this;
+    _classCallCheck(this, RegistrationForm);
+    _this = _super.call(this, props);
+    _defineProperty(_assertThisInitialized(_this), "validateForm", function () {
+      var _this$state = _this.state,
+        userName = _this$state.userName,
+        age = _this$state.age,
+        aadharNo = _this$state.aadharNo,
+        address = _this$state.address;
+      var isValid = true;
+      if (userName.trim() === '') {
+        isValid = false;
+      }
+      if (age.trim() === '' || isNaN(age) || Number(age) <= 0) {
+        isValid = false;
+      }
+      if (aadharNo.trim() === '' || aadharNo.length !== 12 || isNaN(aadharNo)) {
+        isValid = false;
+      }
+      if (address.trim() === '') {
+        isValid = false;
+      }
+      _this.setState({
+        validationError: !isValid
+      });
+      return isValid;
+    });
+    _defineProperty(_assertThisInitialized(_this), "handleInputChange", function (event) {
+      var _event$target = event.target,
+        name = _event$target.name,
+        value = _event$target.value;
+      _this.setState(_defineProperty({}, name, value));
+    });
+    _defineProperty(_assertThisInitialized(_this), "handleInputChange", function (event) {
+      console.log(event);
+      var _event$target2 = event.target,
+        name = _event$target2.name,
+        value = _event$target2.value;
+      _this.setState(_defineProperty({}, name, value));
+    });
+    _defineProperty(_assertThisInitialized(_this), "handleSubmit", function (event) {
+      event.preventDefault();
+      console.log(_this.state);
+      _this.setState({
+        userName: '',
+        age: '',
+        aadharNo: '',
+        address: ''
+      });
+    });
+    _this.state = {
+      userName: '',
+      age: '',
+      aadharNo: '',
+      address: '',
+      validationError: false
+    };
+    return _this;
+  }
+  _createClass(RegistrationForm, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.validateForm();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {}
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {}
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$state2 = this.state,
+        userName = _this$state2.userName,
+        age = _this$state2.age,
+        aadharNo = _this$state2.aadharNo,
+        address = _this$state2.address,
+        validationError = _this$state2.validationError;
+      console.log(this.state);
+      return /*#__PURE__*/_react.default.createElement("form", {
+        style: _style.default.form,
+        onSubmit: this.handleSubmit
+      }, /*#__PURE__*/_react.default.createElement("label", {
+        style: _style.default.label
+      }, "User Name:", /*#__PURE__*/_react.default.createElement("input", {
+        style: _style.default.input,
+        type: "text",
+        name: "userName",
+        value: userName,
+        onChange: this.handleInputChange,
+        required: true
+      })), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
+        style: _style.default.label
+      }, "Age:", /*#__PURE__*/_react.default.createElement("input", {
+        style: _style.default.input,
+        type: "number",
+        name: "age",
+        value: age,
+        onChange: this.handleInputChange,
+        required: true
+      })), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
+        style: _style.default.label
+      }, "Aadhar No:", /*#__PURE__*/_react.default.createElement("input", {
+        style: _style.default.input,
+        type: "text",
+        name: "aadharNo",
+        value: aadharNo,
+        onChange: this.handleInputChange,
+        required: true
+      })), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("label", {
+        style: _style.default.label
+      }, "Address:", /*#__PURE__*/_react.default.createElement("textarea", {
+        style: _style.default.textarea,
+        name: "address",
+        value: address,
+        onChange: this.handleInputChange,
+        required: true
+      })), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("button", {
+        type: "submit",
+        style: _style.default.button
+      }, "Submit"));
+    }
+  }]);
+  return RegistrationForm;
+}(_react.Component);
+var _default = RegistrationForm;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","./style":"src/Components/RegistrationForm/style.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37190,11 +37441,25 @@ var _Navbar = _interopRequireDefault(require("./Components/Navbar/Navbar"));
 var _Profile = _interopRequireDefault(require("./Components/Profile"));
 var _TodoContext = _interopRequireDefault(require("./Components/TodosWithUseContext/TodoContext/TodoContext"));
 var _UseCallbackComp = _interopRequireDefault(require("./Components/UseCallbackComp"));
+var _ImageGallery = _interopRequireDefault(require("../src/Components/Image/ImageGallery/ImageGallery"));
+var _RegistrationForm = _interopRequireDefault(require("./Components/RegistrationForm/RegistrationForm"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function App() {
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_TodoContext.default, null));
+  "http://localhost:3000/assets/images/invoice-presentation.png";
+
+  var images = [{
+    src: "/public/assets/download.jpeg",
+    alt: 'Image 1'
+  }, {
+    src: "http://localhost:1234/assets/download.jpeg",
+    alt: 'Image 2'
+  }, {
+    src: "http://localhost:1234/assets/download.jpeg",
+    alt: 'Image 3'
+  }];
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_RegistrationForm.default, null));
 }
-},{"react":"node_modules/react/index.js","./Components/Login":"src/Components/Login.js","./Components/TodosWithUseState/Todos":"src/Components/TodosWithUseState/Todos.js","./Components/TodosWithUseReducer/Todos":"src/Components/TodosWithUseReducer/Todos.js","./Components/Navbar/Navbar":"src/Components/Navbar/Navbar.js","./Components/Profile":"src/Components/Profile.js","./Components/TodosWithUseContext/TodoContext/TodoContext":"src/Components/TodosWithUseContext/TodoContext/TodoContext.js","./Components/UseCallbackComp":"src/Components/UseCallbackComp.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Components/Login":"src/Components/Login.js","./Components/TodosWithUseState/Todos":"src/Components/TodosWithUseState/Todos.js","./Components/TodosWithUseReducer/Todos":"src/Components/TodosWithUseReducer/Todos.js","./Components/Navbar/Navbar":"src/Components/Navbar/Navbar.js","./Components/Profile":"src/Components/Profile.js","./Components/TodosWithUseContext/TodoContext/TodoContext":"src/Components/TodosWithUseContext/TodoContext/TodoContext.js","./Components/UseCallbackComp":"src/Components/UseCallbackComp.js","../src/Components/Image/ImageGallery/ImageGallery":"src/Components/Image/ImageGallery/ImageGallery.js","./Components/RegistrationForm/RegistrationForm":"src/Components/RegistrationForm/RegistrationForm.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -37229,7 +37494,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42855" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37157" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

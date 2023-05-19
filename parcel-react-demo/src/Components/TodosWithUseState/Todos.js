@@ -30,7 +30,6 @@ const Todos = () => {
                 title: input,
                 id: nextId++,
 
-
             }
         ]);
     }
