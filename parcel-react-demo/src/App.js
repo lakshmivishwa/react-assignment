@@ -6,7 +6,7 @@ import TodosWithuseReducer from "./Components/TodosWithUseReducer/Todos";
 import BasicExample from "./Components/Navbar/Navbar";
 import Profile from "./Components/Profile";
 import TodoContext from "./Components/TodosWithUseContext/TodoContext/TodoContext";
-
+import UseCallbackComp from "./Components/UseCallbackComp"
 
 export default function App() {
 
@@ -21,6 +21,7 @@ export default function App() {
             <TodosWithuseReducer />
             <TodosWithuseState /> */}
             <TodoContext />
+            {/* <UseCallbackComp/> */}
 
         </>
 
