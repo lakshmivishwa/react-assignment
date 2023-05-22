@@ -70,8 +70,6 @@ class RegistrationForm extends Component {
         });
     }
 
-
-
     render() {
         const { userName, age, aadharNo, address, validationError } = this.state;
         console.log(this.state);

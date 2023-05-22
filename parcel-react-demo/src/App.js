@@ -9,6 +9,7 @@ import TodoContext from "./Components/TodosWithUseContext/TodoContext/TodoContex
 import UseCallbackComp from "./Components/UseCallbackComp";
 import ImageGallery from "../src/Components/Image/ImageGallery/ImageGallery";
 import RegistrationForm from "./Components/RegistrationForm/RegistrationForm";
+import TodoList from "./Components/CallbackFn/TodoList/TodoList"
 export default function App() {
     "http://localhost:3000/assets/images/invoice-presentation.png"
 
@@ -25,7 +26,9 @@ export default function App() {
             {/* <TodoContext /> */}
             {/* <UseCallbackComp/> */}
             {/* <ImageGallery images={images} /> */}
-            <RegistrationForm />
+            {/* <RegistrationForm /> */}
+            <TodoList />
+
         </>
 
     )
