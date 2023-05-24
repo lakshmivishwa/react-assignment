@@ -80,9 +80,6 @@ const TodosWithuseReducer = () => {
         dispatch({ type: "TOGGLE_TODO", payload: id });
     };
 
-    console.log(state.input);
-    console.log(state.todos);
-
     return (
         <div style={styles.MainContainer}>
             <h2 style={styles.Title}>Todo list using with useReducer</h2>

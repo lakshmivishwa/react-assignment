@@ -1,7 +1,7 @@
 import React from "react";
 import { Image } from "../ImageCompnent/ImageComponent";
 const ImageGallery = ({ images }) => {
-    console.log('Rendering ImageGallery'); // For demonstration purposes
+    console.log('Rendering ImageGallery');
 
     return (
         <div>

@@ -36,7 +36,6 @@ const Todos = () => {
 
     const handleDeleteTodo = (id) => {
         const newArray = todos.filter((todo) => todo.id !== id);
-        console.log(newArray);
         setTodos(newArray)
 
     }
@@ -47,10 +46,7 @@ const Todos = () => {
             }
         })
     }
-    console.log(input);
-    console.log(todos);
-
-
+  
     return (
         <>
             <div style={styles.MainContainer}>

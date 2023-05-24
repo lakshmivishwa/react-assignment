@@ -37617,6 +37617,7 @@ var TodoItem = function TodoItem(_ref) {
   var todo = _ref.todo,
     deleteTodo = _ref.deleteTodo,
     handleTodoStatus = _ref.handleTodoStatus;
+  console.log("child component rendering");
   console.log(todo);
   var handleDelete = (0, _react.useCallback)(function () {
     deleteTodo(todo.id);
@@ -37636,13 +37637,7 @@ var TodoItem = function TodoItem(_ref) {
       return handleDelete(todo.id);
     },
     style: _style.default.TodosButton
-  }))))
-
-  // <div>
-  //     <span>{todo.text}</span>
-  //     <Button onClick={handleDelete}>Delete</Button>
-  // </div>
-  ;
+  }))));
 };
 var _default = TodoItem;
 exports.default = _default;

@@ -18,12 +18,6 @@ const styles = {
         textDecoration: "none",
         padding: "5px"
     }
-
-    //   Link:hover :{
-    //     textDecoration: "underline";
-    //   }
-
-
 };
 
 export default styles;

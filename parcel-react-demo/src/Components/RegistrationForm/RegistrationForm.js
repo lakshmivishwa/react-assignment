@@ -40,7 +40,6 @@ class RegistrationForm extends Component {
         this.validateForm();
     }
 
-
     componentDidUpdate(prevProps, prevState) {
 
     }

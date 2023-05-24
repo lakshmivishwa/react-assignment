@@ -55,8 +55,6 @@ const styles = {
         margin: "30px",
 
     }
-
-
 };
 
 export default styles;

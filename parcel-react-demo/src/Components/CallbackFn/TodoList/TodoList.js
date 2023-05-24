@@ -3,6 +3,7 @@ import TodoForm from "../TodoForm/TodoForm";
 import TodoItem from "../TodoItem/TodoItem";
 import { useState, useCallback } from 'react';
 import styles from "./style";
+
 let nextId = 5;
 const TodoList = () => {
     const [todos, setTodos] = useState([
@@ -12,7 +13,6 @@ const TodoList = () => {
 
     ]);
     const addTodo = useCallback((text) => {
-
         setTodos([
             ...todos,
             {
@@ -40,7 +40,8 @@ const TodoList = () => {
         <><div >
             <h2>Todo List</h2>
             <TodoForm addTodo={addTodo} />
-        </div><div style={styles.MainContainer}>
+        </div>
+            <div style={styles.MainContainer}>
                 {todos.map(todo => (
                     <TodoItem key={todo.id} todo={todo} deleteTodo={deleteTodo} handleTodoStatus={handleTodoStatus} />
                 ))}

@@ -2,9 +2,9 @@ import Button from "../../Button/Button";
 import React from "react";
 import styles from "./style";
 import { useCallback } from 'react';
-const TodoItem = ({ todo, deleteTodo, handleTodoStatus }) => {
 
-    console.log(todo);
+const TodoItem = ({ todo, deleteTodo, handleTodoStatus }) => {
+    console.log("child component rendering")
     const handleDelete = useCallback(() => {
         deleteTodo(todo.id);
     }, [deleteTodo, todo.id]);
@@ -25,11 +25,6 @@ const TodoItem = ({ todo, deleteTodo, handleTodoStatus }) => {
                         style={styles.TodosButton} /></li>
             </ul>
         </div>
-
-        // <div>
-        //     <span>{todo.text}</span>
-        //     <Button onClick={handleDelete}>Delete</Button>
-        // </div>
     );
 };
 
