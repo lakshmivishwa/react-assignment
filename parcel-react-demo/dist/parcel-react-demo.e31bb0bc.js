@@ -36504,7 +36504,6 @@ var Todos = function Todos() {
     var newArray = todos.filter(function (todo) {
       return todo.id !== id;
     });
-    console.log(newArray);
     setTodos(newArray);
   };
   var handleTodoStatus = function handleTodoStatus(e, id) {
@@ -36516,8 +36515,6 @@ var Todos = function Todos() {
       }
     });
   };
-  console.log(input);
-  console.log(todos);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("div", {
     style: _style.default.MainContainer
   }, /*#__PURE__*/_react.default.createElement("h2", {
@@ -36724,8 +36721,6 @@ var TodosWithuseReducer = function TodosWithuseReducer() {
       payload: id
     });
   };
-  console.log(state.input);
-  console.log(state.todos);
   return /*#__PURE__*/_react.default.createElement("div", {
     style: _style.default.MainContainer
   }, /*#__PURE__*/_react.default.createElement("h2", {
@@ -36799,10 +36794,6 @@ var styles = {
     textDecoration: "none",
     padding: "5px"
   }
-
-  //   Link:hover :{
-  //     textDecoration: "underline";
-  //   }
 };
 var _default = styles;
 exports.default = _default;
@@ -36817,8 +36808,6 @@ var _react = _interopRequireDefault(require("react"));
 var _reactRouterDom = require("react-router-dom");
 var _style = _interopRequireDefault(require("./style"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-// import "./Navbar.css";
-
 var Navbar = function Navbar() {
   return /*#__PURE__*/_react.default.createElement("nav", {
     style: _style.default.Nav
@@ -37206,8 +37195,7 @@ var _ImageComponent = require("../ImageCompnent/ImageComponent");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var ImageGallery = function ImageGallery(_ref) {
   var images = _ref.images;
-  console.log('Rendering ImageGallery'); // For demonstration purposes
-
+  console.log('Rendering ImageGallery');
   return /*#__PURE__*/_react.default.createElement("div", null, images.map(function (image, index) {
     return /*#__PURE__*/_react.default.createElement(_ImageComponent.Image, {
       key: index,
@@ -37618,7 +37606,6 @@ var TodoItem = function TodoItem(_ref) {
     deleteTodo = _ref.deleteTodo,
     handleTodoStatus = _ref.handleTodoStatus;
   console.log("child component rendering");
-  console.log(todo);
   var handleDelete = (0, _react.useCallback)(function () {
     deleteTodo(todo.id);
   }, [deleteTodo, todo.id]);
@@ -37782,7 +37769,812 @@ var TodoList = function TodoList() {
 };
 var _default = TodoList;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","../TodoForm/TodoForm":"src/Components/CallbackFn/TodoForm/TodoForm.js","../TodoItem/TodoItem":"src/Components/CallbackFn/TodoItem/TodoItem.js","./style":"src/Components/CallbackFn/TodoList/style.js"}],"src/App.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../TodoForm/TodoForm":"src/Components/CallbackFn/TodoForm/TodoForm.js","../TodoItem/TodoItem":"src/Components/CallbackFn/TodoItem/TodoItem.js","./style":"src/Components/CallbackFn/TodoList/style.js"}],"src/Components/Redux/Counter/style.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var styles = {
+  Button: {
+    padding: "10px",
+    border: "1px solid green",
+    borderRadius: "5px",
+    backgroundColor: "green",
+    color: "white",
+    // float: "right",
+    margin: "5px"
+  }
+};
+var _default = styles;
+exports.default = _default;
+},{}],"src/Components/Redux/Counter/Counter.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _Button = _interopRequireDefault(require("../../Button/Button"));
+var _style = _interopRequireDefault(require("./style"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var Counter = function Counter() {
+  var increment = function increment() {
+    console.log("incremented");
+  };
+  var decrement = function decrement() {
+    console.log("incremented");
+  };
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Counter One:0"), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    buttonName: "Increment Counter",
+    handleClick: increment,
+    style: _style.default.Button
+  }), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    buttonName: "Decrement Counter",
+    handleClick: decrement,
+    style: _style.default.Button
+  }));
+};
+var _default = Counter;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../../Button/Button":"src/Components/Button/Button.js","./style":"src/Components/Redux/Counter/style.js"}],"src/Components/Redux/CounterTwo/style.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var styles = {
+  Button: {
+    padding: "10px",
+    border: "1px solid green",
+    borderRadius: "5px",
+    backgroundColor: "green",
+    color: "white",
+    // float: "right",
+    margin: "5px"
+  }
+};
+var _default = styles;
+exports.default = _default;
+},{}],"src/Components/Redux/CounterTwo/CounterTwo.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _Button = _interopRequireDefault(require("../../Button/Button"));
+var _style = _interopRequireDefault(require("./style"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var CounterTwo = function CounterTwo() {
+  var increment = function increment() {
+    console.log("incremented");
+  };
+  var decrement = function decrement() {
+    console.log("incremented");
+  };
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Counter One:0"), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    buttonName: "Increment Counter",
+    handleClick: increment,
+    style: _style.default.Button
+  }), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    buttonName: "Decrement Counter",
+    handleClick: decrement,
+    style: _style.default.Button
+  }));
+};
+var _default = CounterTwo;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../../Button/Button":"src/Components/Button/Button.js","./style":"src/Components/Redux/CounterTwo/style.js"}],"src/Components/Redux/Total/Total.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _Button = _interopRequireDefault(require("../../Button/Button"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var Total = function Total() {
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "Total: "));
+};
+var _default = Total;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../../Button/Button":"src/Components/Button/Button.js"}],"src/Components/fetchDataWithEffect/style.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var styles = {
+  mainContainer: {
+    marginTop: "10px"
+    // padding: 0;
+  }
+};
+var _default = styles;
+exports.default = _default;
+},{}],"src/Components/fetchDataWithEffect/fetchDatawithuseEffect.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FetchDataWithEffect = void 0;
+var _react = _interopRequireWildcard(require("react"));
+var _style = _interopRequireDefault(require("./style"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator.return && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, catch: function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var FetchDataWithEffect = function FetchDataWithEffect() {
+  var _useState = (0, _react.useState)([]),
+    _useState2 = _slicedToArray(_useState, 2),
+    posts = _useState2[0],
+    setPosts = _useState2[1];
+  (0, _react.useEffect)(function () {
+    var getData = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var data, result;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return fetch("https://jsonplaceholder.typicode.com/users");
+            case 2:
+              data = _context.sent;
+              _context.next = 5;
+              return data.json();
+            case 5:
+              result = _context.sent;
+              console.log(result);
+              setPosts(result);
+              // return result;
+            case 8:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }));
+      return function getData() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+    getData();
+  }, []);
+  console.log(posts);
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "This is post component"), /*#__PURE__*/_react.default.createElement("div", {
+    style: _style.default.mainContainer
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "user"
+  }, "name:Nicholas Runolfsdottir V"), /*#__PURE__*/_react.default.createElement("div", null, "email:abc@gmail.com")));
+};
+exports.FetchDataWithEffect = FetchDataWithEffect;
+},{"react":"node_modules/react/index.js","./style":"src/Components/fetchDataWithEffect/style.js"}],"src/Components/Zustand/TodoForm/style.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var styles = {
+  ListContainer: {
+    border: "1px solid black",
+    margin: "15px",
+    padding: "10px",
+    textAlign: "left",
+    backgroundColor: "white",
+    listStyle: "none"
+  },
+  MainContainer: {
+    width: "30%",
+    border: "1px solid black",
+    borderRadius: "20px",
+    textAlign: "center",
+    margin: "auto",
+    backgroundColor: "#E6E6FA"
+  },
+  Button: {
+    padding: "5px",
+    border: "1px solid green",
+    borderRadius: "5px",
+    backgroundColor: "green",
+    color: "white",
+    // float: "right",
+    margin: "5px"
+  },
+  TodosButton: {
+    padding: "4px",
+    border: "1px solid red",
+    borderRadius: "5px",
+    backgroundColor: "red",
+    color: "white",
+    float: "right"
+  },
+  Title: {
+    margin: "35px"
+  },
+  Input: {
+    marginLeft: "15px",
+    height: "25px",
+    borderRadius: "6px"
+  },
+  InputContainer: {
+    width: "60%",
+    margin: "auto"
+  },
+  FilterContainer: {
+    margin: "30px"
+  }
+};
+var _default = styles;
+exports.default = _default;
+},{}],"node_modules/zustand/vanilla.js":[function(require,module,exports) {
+'use strict';
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+var createStoreImpl = function createStoreImpl(createState) {
+  var state;
+  var listeners = new Set();
+  var setState = function setState(partial, replace) {
+    var nextState = typeof partial === 'function' ? partial(state) : partial;
+    if (!Object.is(nextState, state)) {
+      var _previousState = state;
+      state = (replace != null ? replace : _typeof(nextState) !== 'object') ? nextState : Object.assign({}, state, nextState);
+      listeners.forEach(function (listener) {
+        return listener(state, _previousState);
+      });
+    }
+  };
+  var getState = function getState() {
+    return state;
+  };
+  var subscribe = function subscribe(listener) {
+    listeners.add(listener);
+    return function () {
+      return listeners.delete(listener);
+    };
+  };
+  var destroy = function destroy() {
+    if ("development" !== 'production') {
+      console.warn('[DEPRECATED] The `destroy` method will be unsupported in a future version. Instead use unsubscribe function returned by subscribe. Everything will be garbage-collected if store is garbage-collected.');
+    }
+    listeners.clear();
+  };
+  var api = {
+    setState: setState,
+    getState: getState,
+    subscribe: subscribe,
+    destroy: destroy
+  };
+  state = createState(setState, getState, api);
+  return api;
+};
+var createStore = function createStore(createState) {
+  return createState ? createStoreImpl(createState) : createStoreImpl;
+};
+var vanilla = function vanilla(createState) {
+  if ("development" !== 'production') {
+    console.warn("[DEPRECATED] Default export is deprecated. Instead use import { createStore } from 'zustand/vanilla'.");
+  }
+  return createStore(createState);
+};
+exports.createStore = createStore;
+exports.default = vanilla;
+module.exports = vanilla;
+module.exports.createStore = createStore;
+exports.default = module.exports;
+},{}],"node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js":[function(require,module,exports) {
+/**
+ * @license React
+ * use-sync-external-store-shim.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+if ("development" !== "production") {
+  (function () {
+    'use strict';
+
+    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+    if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === 'function') {
+      __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
+    }
+    var React = require('react');
+    var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    function error(format) {
+      {
+        {
+          for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+            args[_key2 - 1] = arguments[_key2];
+          }
+          printWarning('error', format, args);
+        }
+      }
+    }
+    function printWarning(level, format, args) {
+      // When changing this logic, you might want to also
+      // update consoleWithStackDev.www.js as well.
+      {
+        var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+        var stack = ReactDebugCurrentFrame.getStackAddendum();
+        if (stack !== '') {
+          format += '%s';
+          args = args.concat([stack]);
+        } // eslint-disable-next-line react-internal/safe-string-coercion
+
+        var argsWithFormat = args.map(function (item) {
+          return String(item);
+        }); // Careful: RN currently depends on this prefix
+
+        argsWithFormat.unshift('Warning: ' + format); // We intentionally don't use spread (or .apply) directly because it
+        // breaks IE9: https://github.com/facebook/react/issues/13610
+        // eslint-disable-next-line react-internal/no-production-logging
+
+        Function.prototype.apply.call(console[level], console, argsWithFormat);
+      }
+    }
+
+    /**
+     * inlined Object.is polyfill to avoid requiring consumers ship their own
+     * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+     */
+    function is(x, y) {
+      return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
+      ;
+    }
+
+    var objectIs = typeof Object.is === 'function' ? Object.is : is;
+
+    // dispatch for CommonJS interop named imports.
+
+    var useState = React.useState,
+      useEffect = React.useEffect,
+      useLayoutEffect = React.useLayoutEffect,
+      useDebugValue = React.useDebugValue;
+    var didWarnOld18Alpha = false;
+    var didWarnUncachedGetSnapshot = false; // Disclaimer: This shim breaks many of the rules of React, and only works
+    // because of a very particular set of implementation details and assumptions
+    // -- change any one of them and it will break. The most important assumption
+    // is that updates are always synchronous, because concurrent rendering is
+    // only available in versions of React that also have a built-in
+    // useSyncExternalStore API. And we only use this shim when the built-in API
+    // does not exist.
+    //
+    // Do not assume that the clever hacks used by this hook also work in general.
+    // The point of this shim is to replace the need for hacks by other libraries.
+
+    function useSyncExternalStore(subscribe, getSnapshot,
+    // Note: The shim does not use getServerSnapshot, because pre-18 versions of
+    // React do not expose a way to check if we're hydrating. So users of the shim
+    // will need to track that themselves and return the correct value
+    // from `getSnapshot`.
+    getServerSnapshot) {
+      {
+        if (!didWarnOld18Alpha) {
+          if (React.startTransition !== undefined) {
+            didWarnOld18Alpha = true;
+            error('You are using an outdated, pre-release alpha of React 18 that ' + 'does not support useSyncExternalStore. The ' + 'use-sync-external-store shim will not work correctly. Upgrade ' + 'to a newer pre-release.');
+          }
+        }
+      } // Read the current snapshot from the store on every render. Again, this
+      // breaks the rules of React, and only works here because of specific
+      // implementation details, most importantly that updates are
+      // always synchronous.
+
+      var value = getSnapshot();
+      {
+        if (!didWarnUncachedGetSnapshot) {
+          var cachedValue = getSnapshot();
+          if (!objectIs(value, cachedValue)) {
+            error('The result of getSnapshot should be cached to avoid an infinite loop');
+            didWarnUncachedGetSnapshot = true;
+          }
+        }
+      } // Because updates are synchronous, we don't queue them. Instead we force a
+      // re-render whenever the subscribed state changes by updating an some
+      // arbitrary useState hook. Then, during render, we call getSnapshot to read
+      // the current value.
+      //
+      // Because we don't actually use the state returned by the useState hook, we
+      // can save a bit of memory by storing other stuff in that slot.
+      //
+      // To implement the early bailout, we need to track some things on a mutable
+      // object. Usually, we would put that in a useRef hook, but we can stash it in
+      // our useState hook instead.
+      //
+      // To force a re-render, we call forceUpdate({inst}). That works because the
+      // new object always fails an equality check.
+
+      var _useState = useState({
+          inst: {
+            value: value,
+            getSnapshot: getSnapshot
+          }
+        }),
+        inst = _useState[0].inst,
+        forceUpdate = _useState[1]; // Track the latest getSnapshot function with a ref. This needs to be updated
+      // in the layout phase so we can access it during the tearing check that
+      // happens on subscribe.
+
+      useLayoutEffect(function () {
+        inst.value = value;
+        inst.getSnapshot = getSnapshot; // Whenever getSnapshot or subscribe changes, we need to check in the
+        // commit phase if there was an interleaved mutation. In concurrent mode
+        // this can happen all the time, but even in synchronous mode, an earlier
+        // effect may have mutated the store.
+
+        if (checkIfSnapshotChanged(inst)) {
+          // Force a re-render.
+          forceUpdate({
+            inst: inst
+          });
+        }
+      }, [subscribe, value, getSnapshot]);
+      useEffect(function () {
+        // Check for changes right before subscribing. Subsequent changes will be
+        // detected in the subscription handler.
+        if (checkIfSnapshotChanged(inst)) {
+          // Force a re-render.
+          forceUpdate({
+            inst: inst
+          });
+        }
+        var handleStoreChange = function () {
+          // TODO: Because there is no cross-renderer API for batching updates, it's
+          // up to the consumer of this library to wrap their subscription event
+          // with unstable_batchedUpdates. Should we try to detect when this isn't
+          // the case and print a warning in development?
+          // The store changed. Check if the snapshot changed since the last time we
+          // read from the store.
+          if (checkIfSnapshotChanged(inst)) {
+            // Force a re-render.
+            forceUpdate({
+              inst: inst
+            });
+          }
+        }; // Subscribe to the store and return a clean-up function.
+
+        return subscribe(handleStoreChange);
+      }, [subscribe]);
+      useDebugValue(value);
+      return value;
+    }
+    function checkIfSnapshotChanged(inst) {
+      var latestGetSnapshot = inst.getSnapshot;
+      var prevValue = inst.value;
+      try {
+        var nextValue = latestGetSnapshot();
+        return !objectIs(prevValue, nextValue);
+      } catch (error) {
+        return true;
+      }
+    }
+    function useSyncExternalStore$1(subscribe, getSnapshot, getServerSnapshot) {
+      // Note: The shim does not use getServerSnapshot, because pre-18 versions of
+      // React do not expose a way to check if we're hydrating. So users of the shim
+      // will need to track that themselves and return the correct value
+      // from `getSnapshot`.
+      return getSnapshot();
+    }
+    var canUseDOM = !!(typeof window !== 'undefined' && typeof window.document !== 'undefined' && typeof window.document.createElement !== 'undefined');
+    var isServerEnvironment = !canUseDOM;
+    var shim = isServerEnvironment ? useSyncExternalStore$1 : useSyncExternalStore;
+    var useSyncExternalStore$2 = React.useSyncExternalStore !== undefined ? React.useSyncExternalStore : shim;
+    exports.useSyncExternalStore = useSyncExternalStore$2;
+    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+    if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === 'function') {
+      __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
+    }
+  })();
+}
+},{"react":"node_modules/react/index.js"}],"node_modules/use-sync-external-store/shim/index.js":[function(require,module,exports) {
+'use strict';
+
+if ("development" === 'production') {
+  module.exports = require('../cjs/use-sync-external-store-shim.production.min.js');
+} else {
+  module.exports = require('../cjs/use-sync-external-store-shim.development.js');
+}
+},{"../cjs/use-sync-external-store-shim.development.js":"node_modules/use-sync-external-store/cjs/use-sync-external-store-shim.development.js"}],"node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js":[function(require,module,exports) {
+/**
+ * @license React
+ * use-sync-external-store-shim/with-selector.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+'use strict';
+
+if ("development" !== "production") {
+  (function () {
+    'use strict';
+
+    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+    if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === 'function') {
+      __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
+    }
+    var React = require('react');
+    var shim = require('use-sync-external-store/shim');
+
+    /**
+     * inlined Object.is polyfill to avoid requiring consumers ship their own
+     * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+     */
+    function is(x, y) {
+      return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
+      ;
+    }
+
+    var objectIs = typeof Object.is === 'function' ? Object.is : is;
+    var useSyncExternalStore = shim.useSyncExternalStore;
+
+    // for CommonJS interop.
+
+    var useRef = React.useRef,
+      useEffect = React.useEffect,
+      useMemo = React.useMemo,
+      useDebugValue = React.useDebugValue; // Same as useSyncExternalStore, but supports selector and isEqual arguments.
+
+    function useSyncExternalStoreWithSelector(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
+      // Use this to track the rendered snapshot.
+      var instRef = useRef(null);
+      var inst;
+      if (instRef.current === null) {
+        inst = {
+          hasValue: false,
+          value: null
+        };
+        instRef.current = inst;
+      } else {
+        inst = instRef.current;
+      }
+      var _useMemo = useMemo(function () {
+          // Track the memoized state using closure variables that are local to this
+          // memoized instance of a getSnapshot function. Intentionally not using a
+          // useRef hook, because that state would be shared across all concurrent
+          // copies of the hook/component.
+          var hasMemo = false;
+          var memoizedSnapshot;
+          var memoizedSelection;
+          var memoizedSelector = function (nextSnapshot) {
+            if (!hasMemo) {
+              // The first time the hook is called, there is no memoized result.
+              hasMemo = true;
+              memoizedSnapshot = nextSnapshot;
+              var _nextSelection = selector(nextSnapshot);
+              if (isEqual !== undefined) {
+                // Even if the selector has changed, the currently rendered selection
+                // may be equal to the new selection. We should attempt to reuse the
+                // current value if possible, to preserve downstream memoizations.
+                if (inst.hasValue) {
+                  var currentSelection = inst.value;
+                  if (isEqual(currentSelection, _nextSelection)) {
+                    memoizedSelection = currentSelection;
+                    return currentSelection;
+                  }
+                }
+              }
+              memoizedSelection = _nextSelection;
+              return _nextSelection;
+            } // We may be able to reuse the previous invocation's result.
+
+            // We may be able to reuse the previous invocation's result.
+            var prevSnapshot = memoizedSnapshot;
+            var prevSelection = memoizedSelection;
+            if (objectIs(prevSnapshot, nextSnapshot)) {
+              // The snapshot is the same as last time. Reuse the previous selection.
+              return prevSelection;
+            } // The snapshot has changed, so we need to compute a new selection.
+
+            // The snapshot has changed, so we need to compute a new selection.
+            var nextSelection = selector(nextSnapshot); // If a custom isEqual function is provided, use that to check if the data
+            // has changed. If it hasn't, return the previous selection. That signals
+            // to React that the selections are conceptually equal, and we can bail
+            // out of rendering.
+
+            // If a custom isEqual function is provided, use that to check if the data
+            // has changed. If it hasn't, return the previous selection. That signals
+            // to React that the selections are conceptually equal, and we can bail
+            // out of rendering.
+            if (isEqual !== undefined && isEqual(prevSelection, nextSelection)) {
+              return prevSelection;
+            }
+            memoizedSnapshot = nextSnapshot;
+            memoizedSelection = nextSelection;
+            return nextSelection;
+          }; // Assigning this to a constant so that Flow knows it can't change.
+
+          // Assigning this to a constant so that Flow knows it can't change.
+          var maybeGetServerSnapshot = getServerSnapshot === undefined ? null : getServerSnapshot;
+          var getSnapshotWithSelector = function () {
+            return memoizedSelector(getSnapshot());
+          };
+          var getServerSnapshotWithSelector = maybeGetServerSnapshot === null ? undefined : function () {
+            return memoizedSelector(maybeGetServerSnapshot());
+          };
+          return [getSnapshotWithSelector, getServerSnapshotWithSelector];
+        }, [getSnapshot, getServerSnapshot, selector, isEqual]),
+        getSelection = _useMemo[0],
+        getServerSelection = _useMemo[1];
+      var value = useSyncExternalStore(subscribe, getSelection, getServerSelection);
+      useEffect(function () {
+        inst.hasValue = true;
+        inst.value = value;
+      }, [value]);
+      useDebugValue(value);
+      return value;
+    }
+    exports.useSyncExternalStoreWithSelector = useSyncExternalStoreWithSelector;
+    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+    if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === 'function') {
+      __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
+    }
+  })();
+}
+},{"react":"node_modules/react/index.js","use-sync-external-store/shim":"node_modules/use-sync-external-store/shim/index.js"}],"node_modules/use-sync-external-store/shim/with-selector.js":[function(require,module,exports) {
+'use strict';
+
+if ("development" === 'production') {
+  module.exports = require('../cjs/use-sync-external-store-shim/with-selector.production.min.js');
+} else {
+  module.exports = require('../cjs/use-sync-external-store-shim/with-selector.development.js');
+}
+},{"../cjs/use-sync-external-store-shim/with-selector.development.js":"node_modules/use-sync-external-store/cjs/use-sync-external-store-shim/with-selector.development.js"}],"node_modules/zustand/index.js":[function(require,module,exports) {
+'use strict';
+
+var vanilla = require('zustand/vanilla');
+var react$1 = require('react');
+var useSyncExternalStoreExports = require('use-sync-external-store/shim/with-selector');
+var useSyncExternalStoreWithSelector = useSyncExternalStoreExports.useSyncExternalStoreWithSelector;
+function useStore(api, selector, equalityFn) {
+  if (selector === void 0) {
+    selector = api.getState;
+  }
+  var slice = useSyncExternalStoreWithSelector(api.subscribe, api.getState, api.getServerState || api.getState, selector, equalityFn);
+  react$1.useDebugValue(slice);
+  return slice;
+}
+var createImpl = function createImpl(createState) {
+  if ("development" !== 'production' && typeof createState !== 'function') {
+    console.warn("[DEPRECATED] Passing a vanilla store will be unsupported in a future version. Instead use `import { useStore } from 'zustand'`.");
+  }
+  var api = typeof createState === 'function' ? vanilla.createStore(createState) : createState;
+  var useBoundStore = function useBoundStore(selector, equalityFn) {
+    return useStore(api, selector, equalityFn);
+  };
+  Object.assign(useBoundStore, api);
+  return useBoundStore;
+};
+var create = function create(createState) {
+  return createState ? createImpl(createState) : createImpl;
+};
+var react = function react(createState) {
+  if ("development" !== 'production') {
+    console.warn("[DEPRECATED] Default export is deprecated. Instead use `import { create } from 'zustand'`.");
+  }
+  return create(createState);
+};
+exports.create = create;
+exports.default = react;
+exports.useStore = useStore;
+Object.keys(vanilla).forEach(function (k) {
+  if (k !== 'default' && !exports.hasOwnProperty(k)) Object.defineProperty(exports, k, {
+    enumerable: true,
+    get: function get() {
+      return vanilla[k];
+    }
+  });
+});
+module.exports = react;
+module.exports.create = create;
+module.exports.useStore = useStore;
+module.exports.createStore = vanilla.createStore;
+exports.default = module.exports;
+},{"zustand/vanilla":"node_modules/zustand/vanilla.js","react":"node_modules/react/index.js","use-sync-external-store/shim/with-selector":"node_modules/use-sync-external-store/shim/with-selector.js"}],"src/zustandStore.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useTodos = exports.useInput = void 0;
+var _zustand = require("zustand");
+var useInput = (0, _zustand.create)(function (set) {
+  return {
+    input: ""
+  };
+});
+exports.useInput = useInput;
+var useTodos = (0, _zustand.create)(function (set) {
+  return {
+    todos: [{
+      title: "noteBook",
+      id: 1,
+      complete: false
+    }, {
+      title: "pen",
+      id: 2,
+      complete: false
+    }]
+    // addTodo: () => set(state => ({
+    //     todos:
+    // }))
+  };
+});
+exports.useTodos = useTodos;
+},{"zustand":"node_modules/zustand/index.js"}],"src/Components/Zustand/TodoForm/Todos.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _Button = _interopRequireDefault(require("../../Button/Button"));
+var _style = _interopRequireDefault(require("./style"));
+var _zustandStore = require("../../../zustandStore");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var TodosWithZustand = function TodosWithZustand() {
+  var input = (0, _zustandStore.useInput)(function (state) {
+    return state.input;
+  });
+  console.log(input);
+  var todos = (0, _zustandStore.useTodos)(function (state) {
+    return state.todos;
+  });
+  console.log(todos);
+  return /*#__PURE__*/_react.default.createElement("div", {
+    style: _style.default.MainContainer
+  }, /*#__PURE__*/_react.default.createElement("h2", {
+    style: _style.default.Title
+  }, " Todo list using with Zustand"), /*#__PURE__*/_react.default.createElement("div", {
+    style: _style.default.InputContainer
+  }, /*#__PURE__*/_react.default.createElement("input", {
+    type: "text",
+    placeholder: "Enter todo"
+    // value={input}
+    // onChange={(e) => setInput(e.target.value)}
+  }), /*#__PURE__*/_react.default.createElement(_Button.default, {
+    buttonName: "Add Item",
+    style: _style.default.Button
+  })), /*#__PURE__*/_react.default.createElement("ul", null, todos.map(function (todo, index) {
+    return /*#__PURE__*/_react.default.createElement("li", {
+      style: _style.default.ListContainer
+    }, /*#__PURE__*/_react.default.createElement("input", {
+      type: "checkbox"
+      // checked={todos.complete}
+      // onChange={(e) => handleTodoStatus(e, todo.id)}
+    }), todo.title, /*#__PURE__*/_react.default.createElement(_Button.default, {
+      buttonName: "Delete",
+      style: _style.default.TodosButton
+    }));
+  })));
+};
+var _default = TodosWithZustand;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","../../Button/Button":"src/Components/Button/Button.js","./style":"src/Components/Zustand/TodoForm/style.js","../../../zustandStore":"src/zustandStore.js"}],"src/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -37800,6 +38592,11 @@ var _UseCallbackComp = _interopRequireDefault(require("./Components/UseCallbackC
 var _ImageGallery = _interopRequireDefault(require("../src/Components/Image/ImageGallery/ImageGallery"));
 var _RegistrationForm = _interopRequireDefault(require("./Components/RegistrationForm/RegistrationForm"));
 var _TodoList = _interopRequireDefault(require("./Components/CallbackFn/TodoList/TodoList"));
+var _Counter = _interopRequireDefault(require("./Components/Redux/Counter/Counter"));
+var _CounterTwo = _interopRequireDefault(require("./Components/Redux/CounterTwo/CounterTwo"));
+var _Total = _interopRequireDefault(require("./Components/Redux/Total/Total"));
+var _fetchDatawithuseEffect = require("./Components/fetchDataWithEffect/fetchDatawithuseEffect");
+var _Todos3 = _interopRequireDefault(require("./Components/Zustand/TodoForm/Todos"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function App() {
   "http://localhost:3000/assets/images/invoice-presentation.png";
@@ -37814,9 +38611,9 @@ function App() {
     src: "http://localhost:1234/assets/download.jpeg",
     alt: 'Image 3'
   }];
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_TodoList.default, null));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Todos3.default, null));
 }
-},{"react":"node_modules/react/index.js","./Components/Login":"src/Components/Login.js","./Components/TodosWithUseState/Todos":"src/Components/TodosWithUseState/Todos.js","./Components/TodosWithUseReducer/Todos":"src/Components/TodosWithUseReducer/Todos.js","./Components/Navbar/Navbar":"src/Components/Navbar/Navbar.js","./Components/Profile":"src/Components/Profile.js","./Components/TodosWithUseContext/TodoContext/TodoContext":"src/Components/TodosWithUseContext/TodoContext/TodoContext.js","./Components/UseCallbackComp":"src/Components/UseCallbackComp.js","../src/Components/Image/ImageGallery/ImageGallery":"src/Components/Image/ImageGallery/ImageGallery.js","./Components/RegistrationForm/RegistrationForm":"src/Components/RegistrationForm/RegistrationForm.js","./Components/CallbackFn/TodoList/TodoList":"src/Components/CallbackFn/TodoList/TodoList.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Components/Login":"src/Components/Login.js","./Components/TodosWithUseState/Todos":"src/Components/TodosWithUseState/Todos.js","./Components/TodosWithUseReducer/Todos":"src/Components/TodosWithUseReducer/Todos.js","./Components/Navbar/Navbar":"src/Components/Navbar/Navbar.js","./Components/Profile":"src/Components/Profile.js","./Components/TodosWithUseContext/TodoContext/TodoContext":"src/Components/TodosWithUseContext/TodoContext/TodoContext.js","./Components/UseCallbackComp":"src/Components/UseCallbackComp.js","../src/Components/Image/ImageGallery/ImageGallery":"src/Components/Image/ImageGallery/ImageGallery.js","./Components/RegistrationForm/RegistrationForm":"src/Components/RegistrationForm/RegistrationForm.js","./Components/CallbackFn/TodoList/TodoList":"src/Components/CallbackFn/TodoList/TodoList.js","./Components/Redux/Counter/Counter":"src/Components/Redux/Counter/Counter.js","./Components/Redux/CounterTwo/CounterTwo":"src/Components/Redux/CounterTwo/CounterTwo.js","./Components/Redux/Total/Total":"src/Components/Redux/Total/Total.js","./Components/fetchDataWithEffect/fetchDatawithuseEffect":"src/Components/fetchDataWithEffect/fetchDatawithuseEffect.js","./Components/Zustand/TodoForm/Todos":"src/Components/Zustand/TodoForm/Todos.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -37851,7 +38648,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38501" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42021" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
