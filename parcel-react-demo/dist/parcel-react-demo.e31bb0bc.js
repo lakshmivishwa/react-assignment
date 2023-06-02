@@ -37893,8 +37893,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var styles = {
   mainContainer: {
-    marginTop: "10px"
-    // padding: 0;
+    border: "1px solid black",
+    padding: "5px",
+    marginTop: "10px",
+    marginBottom: "10px"
   }
 };
 var _default = styles;
@@ -37943,7 +37945,6 @@ var FetchDataWithEffect = function FetchDataWithEffect() {
               result = _context.sent;
               console.log(result);
               setPosts(result);
-              // return result;
             case 8:
             case "end":
               return _context.stop();
@@ -37957,11 +37958,13 @@ var FetchDataWithEffect = function FetchDataWithEffect() {
     getData();
   }, []);
   console.log(posts);
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "This is post component"), /*#__PURE__*/_react.default.createElement("div", {
-    style: _style.default.mainContainer
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "user"
-  }, "name:Nicholas Runolfsdottir V"), /*#__PURE__*/_react.default.createElement("div", null, "email:abc@gmail.com")));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement("h1", null, "This is post component"), posts.map(function (post) {
+    return /*#__PURE__*/_react.default.createElement("div", {
+      style: _style.default.mainContainer
+    }, /*#__PURE__*/_react.default.createElement("div", {
+      className: "user"
+    }, post.name), /*#__PURE__*/_react.default.createElement("div", null, post.email));
+  }));
 };
 exports.FetchDataWithEffect = FetchDataWithEffect;
 },{"react":"node_modules/react/index.js","./style":"src/Components/fetchDataWithEffect/style.js"}],"src/Components/Zustand/TodoForm/style.js":[function(require,module,exports) {
@@ -38499,28 +38502,43 @@ exports.default = module.exports;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.useTodos = exports.useInput = void 0;
+exports.useTodos = void 0;
 var _zustand = require("zustand");
-var useInput = (0, _zustand.create)(function (set) {
-  return {
-    input: ""
-  };
-});
-exports.useInput = useInput;
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+var nextId = 5;
 var useTodos = (0, _zustand.create)(function (set) {
   return {
     todos: [{
       title: "noteBook",
-      id: 1,
-      complete: false
+      id: 1
     }, {
       title: "pen",
-      id: 2,
-      complete: false
-    }]
-    // addTodo: () => set(state => ({
-    //     todos:
-    // }))
+      id: 2
+    }],
+    addTodo: function addTodo(text) {
+      return set(function (state) {
+        return {
+          todos: [].concat(_toConsumableArray(state.todos), [{
+            title: text,
+            id: nextId++
+          }])
+        };
+      });
+    },
+    deleteTodo: function deleteTodo(index) {
+      return set(function (state) {
+        return {
+          todos: state.todos.filter(function (todo) {
+            return todo.id !== index;
+          })
+        };
+      });
+    }
   };
 });
 exports.useTodos = useTodos;
@@ -38531,20 +38549,42 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _react = _interopRequireDefault(require("react"));
+var _react = _interopRequireWildcard(require("react"));
 var _Button = _interopRequireDefault(require("../../Button/Button"));
 var _style = _interopRequireDefault(require("./style"));
 var _zustandStore = require("../../../zustandStore");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var TodosWithZustand = function TodosWithZustand() {
-  var input = (0, _zustandStore.useInput)(function (state) {
-    return state.input;
-  });
-  console.log(input);
+  var _useState = (0, _react.useState)(""),
+    _useState2 = _slicedToArray(_useState, 2),
+    input = _useState2[0],
+    setInput = _useState2[1];
   var todos = (0, _zustandStore.useTodos)(function (state) {
     return state.todos;
   });
+  var addItem = (0, _zustandStore.useTodos)(function (state) {
+    return state.addTodo;
+  });
+  var deleteTodo = (0, _zustandStore.useTodos)(function (state) {
+    return state.deleteTodo;
+  });
   console.log(todos);
+  console.log(addItem);
+  var addTodos = function addTodos() {
+    addItem(input);
+    setInput("");
+  };
+  var deleteTodoList = function deleteTodoList(id) {
+    deleteTodo(id);
+  };
   return /*#__PURE__*/_react.default.createElement("div", {
     style: _style.default.MainContainer
   }, /*#__PURE__*/_react.default.createElement("h2", {
@@ -38553,22 +38593,26 @@ var TodosWithZustand = function TodosWithZustand() {
     style: _style.default.InputContainer
   }, /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
-    placeholder: "Enter todo"
-    // value={input}
-    // onChange={(e) => setInput(e.target.value)}
+    placeholder: "Enter todo",
+    value: input,
+    onChange: function onChange(e) {
+      return setInput(e.target.value);
+    }
   }), /*#__PURE__*/_react.default.createElement(_Button.default, {
     buttonName: "Add Item",
-    style: _style.default.Button
+    style: _style.default.Button,
+    handleClick: addTodos
   })), /*#__PURE__*/_react.default.createElement("ul", null, todos.map(function (todo, index) {
     return /*#__PURE__*/_react.default.createElement("li", {
       style: _style.default.ListContainer
     }, /*#__PURE__*/_react.default.createElement("input", {
       type: "checkbox"
-      // checked={todos.complete}
-      // onChange={(e) => handleTodoStatus(e, todo.id)}
     }), todo.title, /*#__PURE__*/_react.default.createElement(_Button.default, {
       buttonName: "Delete",
-      style: _style.default.TodosButton
+      style: _style.default.TodosButton,
+      handleClick: function handleClick() {
+        return deleteTodoList(todo.id);
+      }
     }));
   })));
 };
@@ -38611,7 +38655,7 @@ function App() {
     src: "http://localhost:1234/assets/download.jpeg",
     alt: 'Image 3'
   }];
-  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_Todos3.default, null));
+  return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_fetchDatawithuseEffect.FetchDataWithEffect, null));
 }
 },{"react":"node_modules/react/index.js","./Components/Login":"src/Components/Login.js","./Components/TodosWithUseState/Todos":"src/Components/TodosWithUseState/Todos.js","./Components/TodosWithUseReducer/Todos":"src/Components/TodosWithUseReducer/Todos.js","./Components/Navbar/Navbar":"src/Components/Navbar/Navbar.js","./Components/Profile":"src/Components/Profile.js","./Components/TodosWithUseContext/TodoContext/TodoContext":"src/Components/TodosWithUseContext/TodoContext/TodoContext.js","./Components/UseCallbackComp":"src/Components/UseCallbackComp.js","../src/Components/Image/ImageGallery/ImageGallery":"src/Components/Image/ImageGallery/ImageGallery.js","./Components/RegistrationForm/RegistrationForm":"src/Components/RegistrationForm/RegistrationForm.js","./Components/CallbackFn/TodoList/TodoList":"src/Components/CallbackFn/TodoList/TodoList.js","./Components/Redux/Counter/Counter":"src/Components/Redux/Counter/Counter.js","./Components/Redux/CounterTwo/CounterTwo":"src/Components/Redux/CounterTwo/CounterTwo.js","./Components/Redux/Total/Total":"src/Components/Redux/Total/Total.js","./Components/fetchDataWithEffect/fetchDatawithuseEffect":"src/Components/fetchDataWithEffect/fetchDatawithuseEffect.js","./Components/Zustand/TodoForm/Todos":"src/Components/Zustand/TodoForm/Todos.js"}],"index.js":[function(require,module,exports) {
 "use strict";
@@ -38648,7 +38692,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42021" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "35331" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

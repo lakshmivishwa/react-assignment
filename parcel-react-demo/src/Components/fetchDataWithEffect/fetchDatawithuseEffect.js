@@ -10,7 +10,6 @@ export const FetchDataWithEffect = () => {
             const result = await data.json()
             console.log(result);
             setPosts(result);
-            // return result;
         }
         getData();
     }, [])
@@ -19,14 +18,12 @@ export const FetchDataWithEffect = () => {
     return (
         <>
             <h1>This is post component</h1>
-
-            {/* {posts.map((post) => ( */}
-            <div style={styles.mainContainer}>
-                <div className="user">name:Nicholas Runolfsdottir V</div>
-                <div>email:abc@gmail.com</div>
-            </div>
-            {/* ))} */}
-
+            {posts.map((post) => (
+                <div style={styles.mainContainer}>
+                    <div className="user">{post.name}</div>
+                    <div>{post.email}</div>
+                </div>
+            ))}
 
         </>
     )

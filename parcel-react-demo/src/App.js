@@ -37,8 +37,8 @@ export default function App() {
             {/* <Total /> */}
             {/* <Counter /> */}
             {/* <CounterTwo /> */}
-            {/* <FetchDataWithEffect /> */}
-            <TodosWithZustand />
+            <FetchDataWithEffect />
+            {/* <TodosWithZustand /> */}
 
         </>
 

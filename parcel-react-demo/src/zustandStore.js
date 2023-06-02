@@ -1,26 +1,30 @@
 import { create } from 'zustand';
 
-export const useInput = create((set) => ({
-input:"",
-
-}))
+let nextId = 5;
 
 export const useTodos = create((set) => ({
     todos: [
         {
             title: "noteBook",
             id: 1,
-            complete: false
+
         },
         {
             title: "pen",
             id: 2,
-            complete: false
+
 
         }
     ],
-    // addTodo: () => set(state => ({
-    //     todos:
-    // }))
+    addTodo: (text) => set(state => ({
+        todos: [...state.todos,
+        {
+            title: text,
+            id: nextId++,
+
+        }]
+    })),
+
+    deleteTodo: (index) => set((state) => ({ todos: state.todos.filter((todo) => todo.id !== index) })),
 
 }))
