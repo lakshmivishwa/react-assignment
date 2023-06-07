@@ -1,0 +1,26 @@
+nav {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  ul {
+    /* display: flex; */
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-right: 10px;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+/*# sourceMappingURL=/parcel-react-demo.e31bb0bc.css.map */
